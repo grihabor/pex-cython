@@ -1,11 +1,15 @@
 all: helloworld.pex
 
-src/helloworld.cpython-311-x86_64-linux-gnu.so:
+venv:
+	python3.11 -m venv venv
+	venv/bin/pip install --upgrade pip wheel cython pex
+
+src/helloworld.cpython-311-x86_64-linux-gnu.so: venv
 	mkdir -p src
-	cythonize -a -i helloworld.pyx 
+	venv/bin/cythonize -a -i helloworld.pyx
 
 helloworld.pex: src/helloworld.cpython-311-x86_64-linux-gnu.so
-	pex -D src -m helloworld:entrypoint -o helloworld.pex
+	venv/bin/pex -D src -m helloworld:entrypoint -o helloworld.pex
 
 clean:
 	rm -vf \
