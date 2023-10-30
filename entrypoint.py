@@ -1,0 +1,3 @@
+import helloworld
+
+helloworld.entrypoint()

@@ -1,5 +1,7 @@
 from setuptools import setup, Extension
 from Cython.Build import cythonize
 
-setup_args = dict(ext_modules=cythonize("helloworld.pyx"))
-setup(**setup_args)
+setup(
+    ext_modules=cythonize("helloworld.pyx"),
+    entrypoints={"console_scripts": {"helloworld": "helloworld:entrypoint"}},
+)

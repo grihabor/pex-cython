@@ -5,3 +5,6 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "helloworld"
 version = "0.1.0"
+
+[project.scripts]
+helloworld = "helloworld:main"

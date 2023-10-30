@@ -4,3 +4,6 @@
 **/*.so
 build/
 venv/
+dist/
+*.pex
+*.zip
